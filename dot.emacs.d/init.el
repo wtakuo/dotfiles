@@ -1,6 +1,6 @@
 ;;; init.el --- Startup file for Emacs
 ;;; Author: Takuo Watanabe <takuo@acm.org>
-;;; Time-stamp: <2015-09-10 11:47:49 takuo>
+;;; Time-stamp: <2015-11-22 19:53:25 takuo>
 
 (global-set-key "\C-h" 'delete-backward-char)
 (global-set-key "\C-xh" 'help-command)
@@ -24,8 +24,10 @@
 (prefer-coding-system 'utf-8)
 
 (when window-system
-  (global-font-lock-mode t)
-  (tool-bar-mode 0)
+  (when (fboundp 'global-font-lock-mode)
+    (global-font-lock-mode t))
+  (when (fboundp 'tool-bar-mode)
+    (tool-bar-mode 0))
   (add-to-list 'default-frame-alist
                '(font . "inconsolata-16")))
 
@@ -55,7 +57,6 @@
               (setq indent-tabs-mode nil)
               (setq tab-width 4)
               (setq c-basic-offset 4)))
-
 
 (add-hook 'before-save-hook 'time-stamp)
 
