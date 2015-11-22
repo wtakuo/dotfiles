@@ -1,6 +1,9 @@
 ;;; init.el --- Startup file for Emacs
 ;;; Author: Takuo Watanabe <takuo@acm.org>
-;;; Time-stamp: <2015-11-22 19:53:25 takuo>
+;;; Time-stamp: <2015-11-23 00:24:55 takuo>
+
+;;; Commentary:
+;;; Code:
 
 (global-set-key "\C-h" 'delete-backward-char)
 (global-set-key "\C-xh" 'help-command)
@@ -8,6 +11,7 @@
 (add-hook 'buffer-menu-mode-hook
 	  #'(lambda ()
 	      (define-key Buffer-menu-mode-map "q" 'Buffer-menu-select)))
+
 (global-set-key "\C-c\C-k" 'compile)
 (global-set-key "\C-ck" 'compile)
 
@@ -19,6 +23,8 @@
 (column-number-mode 1)
 (when (fboundp 'show-paren-mode)
   (show-paren-mode 1))
+(unless window-system
+  (menu-bar-mode -1))
 
 (set-language-environment 'Japanese)
 (prefer-coding-system 'utf-8)
@@ -46,11 +52,15 @@
 (when (and window-system (locate-library "linum"))
   (autoload 'linum-on "linum")
   (add-hook 'emacs-lisp-mode-hook 'linum-on)
-  (add-hook 'c-mode-common-hook 'linum-on))
+  (add-hook 'c-mode-common-hook 'linum-on)
+  (add-hook 'python-mode-hook 'linum-on))
 
 (when (locate-library "auto-complete")
   (add-hook 'emacs-lisp-mode-hook 'auto-complete-mode)
   (add-hook 'c-mode-common-hook 'auto-complete-mode))
+
+(when (locate-library "flycheck")
+  (add-hook 'after-init-hook #'global-flycheck-mode))
 
 (add-hook 'c-mode-common-hook
           #'(lambda ()
