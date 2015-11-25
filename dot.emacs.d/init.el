@@ -1,6 +1,6 @@
 ;;; init.el --- Startup file for Emacs
 ;;; Author: Takuo Watanabe <takuo@acm.org>
-;;; Time-stamp: <2015-11-23 00:24:55 takuo>
+;;; Time-stamp: <2015-11-25 12:13:28 takuo>
 
 ;;; Commentary:
 ;;; Code:
@@ -35,7 +35,7 @@
   (when (fboundp 'tool-bar-mode)
     (tool-bar-mode 0))
   (add-to-list 'default-frame-alist
-               '(font . "inconsolata-16")))
+               '(font . "inconsolata-14")))
 
 (setq next-line-add-newlines t)
 (put 'narrow-to-region 'disabled nil)
