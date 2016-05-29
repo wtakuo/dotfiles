@@ -1,9 +1,6 @@
 [user]
 	name = Takuo WATANABE
 	email = takuo@acm.org
-[github]
-	user = wtakuo
-	token = 6d35c0406c5ffb57d626bbadde6acec1
 [core]
 	editor = emacs
 	pager = less
