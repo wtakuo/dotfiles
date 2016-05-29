@@ -1,0 +1,10 @@
+Host twrpi*.local
+        AddressFamily inet
+
+Host *
+        ForwardAgent yes
+        ForwardX11 no
+        TCPKeepAlive yes
+        ServerAliveInterval 120
+        ServerAliveCOuntMax 5
+
