@@ -5,6 +5,7 @@
 
 dot.ssh/authorized_keys
 dot.ssh/known_hosts
+dot.ssh/id*
 dot.emacs.d/elpa/
 dot.emacs.d/auto-save-list/
 dot.emacs.d/ac-comphist.dat
