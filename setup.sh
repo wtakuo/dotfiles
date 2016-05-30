@@ -20,6 +20,8 @@ for f in $thisdir/dot.*; do
     fi
 done
 
+chmod go-rwx $thisdir/dot.ssh
+
 clinitfile=$thisdir/clinit.lisp
 clinits=".sbclrc .ccl-init.lisp"
 if [ -f $clinitfile ]; then
