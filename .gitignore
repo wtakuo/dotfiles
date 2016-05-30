@@ -4,7 +4,7 @@
 *.elc
 
 dot.ssh/authorized_keys
-dot.ssh/known_hosts
+dot.ssh/known_hosts*
 dot.ssh/id*
 dot.emacs.d/elpa/
 dot.emacs.d/auto-save-list/
