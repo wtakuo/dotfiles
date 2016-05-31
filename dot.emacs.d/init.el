@@ -1,6 +1,6 @@
 ;;; init.el --- Startup file for Emacs
 ;;; Author: Takuo Watanabe <takuo@acm.org>
-;;; Time-stamp: <2015-11-25 12:13:28 takuo>
+;;; Time-stamp: <2016-05-31 10:50:36 takuo>
 
 ;;; Commentary:
 ;;; Code:
@@ -24,6 +24,7 @@
 (when (fboundp 'show-paren-mode)
   (show-paren-mode 1))
 (unless window-system
+  (set-face-background 'default "black")
   (menu-bar-mode -1))
 
 (set-language-environment 'Japanese)
