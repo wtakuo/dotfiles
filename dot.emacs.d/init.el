@@ -1,6 +1,6 @@
 ;;; init.el --- Startup file for Emacs
 ;;; Author: Takuo Watanabe <takuo@acm.org>
-;;; Time-stamp: <2016-05-31 10:50:36 takuo>
+;;; Time-stamp: <2016-06-07 11:58:06 takuo>
 
 ;;; Commentary:
 ;;; Code:
@@ -44,10 +44,13 @@
 (setq yank-excluded-properties t)
 
 (when (require 'package)
-  (add-to-list 'package-archives
-               '("marmalade" . "http://marmalade-repo.org/packages/"))
+;  (add-to-list 'package-archives
+;               '("marmalade" . "http://marmalade-repo.org/packages/"))
   (add-to-list 'package-archives
                '("melpa" . "http://melpa.org/packages/"))
+  (when (< emacs-major-version 24)
+    (add-to-list 'package-archives
+                 '("gnu" . "http://elpa.gnu/org/packages/")))
   (package-initialize))
 
 (when (and window-system (locate-library "linum"))
