@@ -1,6 +1,6 @@
 ;;; init.el --- Startup file for Emacs
 ;;; Author: Takuo Watanabe <takuo@acm.org>
-;;; Time-stamp: <2016-06-07 11:58:06 takuo>
+;;; Time-stamp: <2018-06-16 18:19:26 takuo>
 
 ;;; Commentary:
 ;;; Code:
@@ -24,7 +24,7 @@
 (when (fboundp 'show-paren-mode)
   (show-paren-mode 1))
 (unless window-system
-  (set-face-background 'default "black")
+  ;(set-face-background 'default "black")
   (menu-bar-mode -1))
 
 (set-language-environment 'Japanese)
@@ -36,7 +36,8 @@
   (when (fboundp 'tool-bar-mode)
     (tool-bar-mode 0))
   (add-to-list 'default-frame-alist
-               '(font . "inconsolata-14")))
+               '(font . "inconsolata-14"))
+  (load-theme 'tango-dark t))
 
 (setq next-line-add-newlines t)
 (put 'narrow-to-region 'disabled nil)
@@ -74,4 +75,31 @@
 
 (add-hook 'before-save-hook 'time-stamp)
 
+(add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+
 ;;; init.el ends here
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(haskell-process-args-cabal-new-repl
+   (quote
+    ("--ghc-option=-ferror-spans" "--ghc-opeion=-fshow-loaded-module")))
+ '(haskell-process-args-cabal-repl
+   (quote
+    ("--ghc-option=-ferror-spans" "--ghc-option=-fshow-loaded-module")))
+ '(haskell-process-args-ghci (quote ("-ferror-spans" "-fshow-loaded-modules")))
+ '(haskell-process-args-stack-ghci
+   (quote
+    ("--ghci-options=-ferror-spans" "--ghci-options=-fshow-loaded-modules" "--no-build" "--no-load")))
+ '(haskell-process-auto-import-loaded-modules t)
+ '(haskell-process-log t)
+ '(haskell-process-suggest-remove-import-lines t)
+ '(haskell-process-type (quote stack-ghci)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

@@ -112,3 +112,9 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+ROS_SETUP=/opt/ros/kinetic/setup.bash
+if [ -f $ROS_SETUP ]; then
+    . $ROS_SETUP
+fi
+
